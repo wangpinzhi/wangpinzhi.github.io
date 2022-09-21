@@ -51,3 +51,90 @@ date: 2022-09-21 17:00 +0800
 </div>
 
 ## 3 关键代码实现思想
+&emsp;&emsp;代码采用Python语言实现，关键函数为calculate_angle_difference，该函数计算每个像素对应的$\bigtriangleup\theta$和$\bigtriangleup\varphi$。
+{% highlight python %}
+def calculate_angle_difference(cubemap_list, cubemap_h=1024):
+
+    # init calculate parameters
+    base_u = np.arange(cubemap_h*cubemap_h,dtype=np.float32)
+    base_u = np.mod(base_u,cubemap_h)
+    base_u.resize((cubemap_h,cubemap_h))
+    base_v = base_u.T
+    center_u = center_v = (cubemap_h-1)/2
+    diff_u_center_u = base_u - center_u
+    diff_v_center_v = base_v - center_v
+
+    phi_list = []
+    theta_list = []
+
+    for i in range(6):
+        diff_u_center_u_offset = diff_u_center_u+cubemap_list[i][...,0]
+        diff_u_center_u_offset[diff_u_center_u_offset==0.0]= 1e-5 # 防止除0
+        diff_v_center_v_offset = diff_v_center_v+cubemap_list[i][...,1] # 防止除0
+        diff_v_center_v_offset[diff_v_center_v_offset==0.0]= 1e-5
+        phi = None
+        theta =None
+
+        if i == 0:# 处理cubemap 1 OZ正方向数据
+            phi  = - np.arccos((-diff_u_center_u)/(np.sqrt(center_v*center_v+diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + np.arccos((-diff_u_center_u_offset)/(np.sqrt(center_v*center_v+diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+            theta = - (diff_v_center_v/np.abs(diff_v_center_v))*np.arccos((center_v)/(np.sqrt(center_v*center_v+diff_v_center_v*diff_v_center_v)))\
+            + (diff_v_center_v_offset/np.abs(diff_v_center_v_offset))*np.arccos((center_v)/(np.sqrt(center_v*center_v+diff_v_center_v_offset*diff_v_center_v_offset)))
+        elif i==1: # 处理cubemap 2 OX反方向数据
+            phi  = - np.arccos((-center_v)/(np.sqrt(center_v*center_v+diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + np.arccos((-center_v)/(np.sqrt(center_v*center_v+diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+            theta = - (diff_v_center_v/np.abs(diff_v_center_v))*np.arccos((-diff_u_center_u)/(np.sqrt(diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + (diff_v_center_v_offset/np.abs(diff_v_center_v_offset))*np.arccos((-diff_u_center_u_offset)/(np.sqrt(diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+        elif i==2: # 处理cubemap 3 OZ 反方向数据
+            phi  = - np.arccos((diff_u_center_u)/(np.sqrt(center_v*center_v+diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + np.arccos((diff_u_center_u_offset)/(np.sqrt(center_v*center_v+diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+            theta = - (diff_v_center_v/np.abs(diff_v_center_v))*np.arccos((-center_v)/(np.sqrt(center_v*center_v+diff_v_center_v*diff_v_center_v)))\
+            + (diff_v_center_v_offset/np.abs(diff_v_center_v_offset))*np.arccos((-center_v)/(np.sqrt(center_v*center_v+diff_v_center_v_offset*diff_v_center_v_offset)))
+        elif i==3: # 处理cubemap 4 OX 正方向数据
+            phi  = - np.arccos((center_v)/(np.sqrt(center_v*center_v+diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + np.arccos((center_v)/(np.sqrt(center_v*center_v+diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+            theta = - (diff_v_center_v/np.abs(diff_v_center_v))*np.arccos((diff_u_center_u)/(np.sqrt(diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + (diff_v_center_v_offset/np.abs(diff_v_center_v_offset))*np.arccos((diff_u_center_u_offset)/(np.sqrt(diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+        elif i==4: # OY正方向数据
+            phi  = - np.arccos((-diff_u_center_u)/(np.sqrt(center_v*center_v+diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + np.arccos((-diff_u_center_u_offset)/(np.sqrt(center_v*center_v+diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+            theta = np.arccos((diff_v_center_v)/(np.sqrt(center_v*center_v+diff_v_center_v*diff_v_center_v))) \
+            - np.arccos((diff_v_center_v_offset)/(np.sqrt(center_v*center_v+diff_v_center_v_offset*diff_v_center_v_offset)))
+        elif i==5: # OY反方向数据
+            phi  = - np.arccos((-diff_u_center_u)/(np.sqrt(center_v*center_v+diff_u_center_u*diff_u_center_u+diff_v_center_v*diff_v_center_v)))\
+            + np.arccos((-diff_u_center_u_offset)/(np.sqrt(center_v*center_v+diff_u_center_u_offset*diff_u_center_u_offset+diff_v_center_v_offset*diff_v_center_v_offset)))
+            theta = - np.arccos((-diff_v_center_v)/(np.sqrt(center_v*center_v+diff_v_center_v*diff_v_center_v))) \
+            + np.arccos((-diff_v_center_v_offset)/(np.sqrt(center_v*center_v+diff_v_center_v_offset*diff_v_center_v_offset)))
+
+        theta[theta>PI] -= 2*PI
+        theta[theta<-PI]+= 2*PI
+
+        phi_list.append(phi)
+        theta_list.append(theta)
+
+    return phi_list, theta_list
+{% endhighlight %}
+&emsp;&emsp;这样我们可以得到$H\times   W\times 2$的图像。最后可以采用Cubemap转erp投影的方式，该方法是从cubemap中采样RGB值到投影图上，
+本文的全景光流转换则是采样$\bigtriangleup\theta$和$\bigtriangleup\varphi$。
+{% highlight python %}
+        # cube map data [back down front left right up]
+        input_cube = np.zeros((6,2,cubemap_h,cubemap_h),dtype=np.float32)
+        input_cube[0,0,...] = phi_list[2]
+        input_cube[0,1,...] = theta_list[2]
+        input_cube[1,0,...] = phi_list[5]
+        input_cube[1,1,...] = theta_list[5]
+        input_cube[2,0,...] = phi_list[0]
+        input_cube[2,1,...] = theta_list[0]
+        input_cube[3,0,...] = phi_list[3]
+        input_cube[3,1,...] = theta_list[3]
+        input_cube[4,0,...] = phi_list[1]
+        input_cube[4,1,...] = theta_list[1]
+        input_cube[5,0,...] = phi_list[4]
+        input_cube[5,1,...] = theta_list[4]
+
+        batch = torch.tensor(input_cube,dtype=torch.float32)
+        out = cube2erp.ToEquirecTensor(batch, 'nearest')
+        out = out.numpy()
+        #print(out)
+        out = out * cubemap_h /PI
+{% endhighlight %}
