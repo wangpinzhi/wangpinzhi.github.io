@@ -1,9 +1,11 @@
 ---
 layout: post
 title: 全景光流定义
-tags: OpticalFlow
+author: Pinzhi Wang
+tags:
+- OpticalFlow
 math: true
-date: 2022-09-21 17:00
+date: 2022-09-21 17:00 +0800
 ---
 
 # 全景光流定义
