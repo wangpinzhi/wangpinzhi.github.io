@@ -17,6 +17,9 @@ date: 2022-09-21 17:00 +0800
 </div>
 
 ## 2 从Cubemap光流到全景光流
+<div  align="center">
+  <img src="{{site.url}}/assets/panoramic_optical_flow/overview.jpg">
+</div>
 &emsp;&emsp;因为一般cubemap六个面的光流是在**各个相机的图像坐标系**的图像坐标系下的uv方向上的像素变换值，本文将将不同图像坐标系下的像素变化转换到**以六个相机为中心的球体坐标系**下角度的变化，球的半径R为cubemap图像宽度/长度的一半，换言之，**该球体是cubemap形成正方体的内切球**。<br>
 &emsp;&emsp;设从Cubemap形成的正方体$C$上的一像素点$P$与正方体的内切球$S$的中心$O$形成的向量$\vec{OP}$，与平面$YOZ$的夹角为$\varphi$；设点$P$在平面$YOZ$上的投影为点$P'$，$\vec{OP'}$与$\vec{OZ}$的夹角设为$\theta$。全景光流的变化即为$\theta和\varphi$的角度变化，我们可以通过如下方式进行求解。<br>
 
@@ -106,7 +109,7 @@ def calculate_angle_difference(cubemap_list, cubemap_h=1024):
             theta = - np.arccos((-diff_v_center_v)/(np.sqrt(center_v*center_v+diff_v_center_v*diff_v_center_v))) \
             + np.arccos((-diff_v_center_v_offset)/(np.sqrt(center_v*center_v+diff_v_center_v_offset*diff_v_center_v_offset)))
 
-        theta[theta>PI] -= 2*PI
+        theta[theta>PI] -= 2*PI #theta角的限制
         theta[theta<-PI]+= 2*PI
 
         phi_list.append(phi)
@@ -138,3 +141,45 @@ def calculate_angle_difference(cubemap_list, cubemap_h=1024):
         #print(out)
         out = out * cubemap_h /PI
 {% endhighlight %}
+
+## 4 关于$\bigtriangleup\theta$和$\bigtriangleup\varphi$的限制
+&emsp;&emsp;设平面$YOZ$的单位法向量为$\vec{n}=[1,0,0]^{T}$，也就是说它的方向与$\vec{OX}$相同，从而我们可得$\varphi \in [-\frac{\pi }{2},\frac{\pi }{2} ]$；同样地，我们可知$\theta \in [-\pi,\pi]$，定义以$\vec{OX}$为旋转轴，在左手坐标系下（大拇指方向与$\vec{OX}$相同），$\vec{OZ}$顺时针旋转为正（向上旋转），逆时针旋转（向下旋转）为负，也就是说，$\theta$的符号与$\vec{OP}$的$Y$分量的符号相同。素在不同cubemap上的光流即可被转换到角度$\varphi$和$\theta$的变换$\bigtriangleup\varphi$和$\bigtriangleup\theta$，值得注意的是$\bigtriangleup\varphi$的大小不会超过$−\pi$和$\pi$，而$\bigtriangleup\theta$的大小需要限制到$ [-\pi,\pi]$之内，因为我们假定两帧之间的物体位移很小，i.e.当$\bigtriangleup\theta$大于$\pi$时， $\bigtriangleup\theta -= 2\pi$；当$\bigtriangleup\theta$小于$-\pi$时，$\bigtriangleup\theta += 2\pi$，下面是对该限制的具体举例。<br>
+<div  align="center">
+  <img src="{{site.url}}/assets/panoramic_optical_flow/theta_restrict.jpg">
+</div>
+
+## 5 Carla虚拟数据集中全景光流可视化和相邻帧之间的关键点映射检验
+### 5.1 Carla光流数据处理
+&emsp;&emsp;经过本人实验验证和对网上资源的总结，carla采集到的光流需要经过前处理，从而转变为计算机视觉中标准的光流定义。设从carla中得到的光流为$Flow_{origin}:(H,W,2)$，cubemap的高度/宽度(cubemap是正方形)为$H$，转换后的光流为$Flow_{out}$，则有：<br>
+<div  align="center">
+$$
+\begin{eqnarray}
+F_{out}[:,:,0] & = & F_{origin}[:,:,0]*(-H/2) \\
+F_{out}[:,:,1] & = & F_{origin}[:,:,1]*(H/2)
+\end{eqnarray}
+$$
+</div>
+下面是以front面为例的代码:
+{% highlight python %}
+front  = np.load(os.path.join(r'./sensor_raw_data','l_camof1',file))
+front[:,:,0] *= -512.0 # u方向 width方向 width=height=1024
+front[:,:,1] *= 512.0 # v方向 height方向
+{% endhighlight %}
+&emsp;&emsp;最终得到的光流是后向光流（BackwardFlow），设当前帧图像像素点$P_{cur}$，前一帧图像像素点$P_{last}$，当前帧相对于上一帧的光流变化$(\bigtriangleup u,\bigtriangleup v)$，则有：<br>
+<div  align="center">
+$$
+\begin{eqnarray}
+P_{last}-P_{cur}=(\bigtriangleup u,\bigtriangleup v)
+\end{eqnarray}
+$$
+</div>
+
+### 5.2 全景光流可视化图片展示
+<div  align="center">
+  <img src="{{site.url}}/assets/panoramic_optical_flow/opticalflow_vis.jpg">
+</div>
+### 5.3 相邻帧之间的关键点映射检验
+&emsp;&emsp;本小节展示通过第2367帧的采集光流，将第2367帧中的部分点与第2365帧中的点进行匹配，以此大致检验光流的正确性。
+<div  align="center">
+  <img src="{{site.url}}/assets/panoramic_optical_flow/images_match_eval.jpg">
+</div>
