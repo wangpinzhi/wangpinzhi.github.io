@@ -29,14 +29,13 @@ exclude:
 
 # Optimize Jekyl SEO Tag
 twitter:
-  username: vszhub
+  username: wangpinzhi
   card: summary
 logo: logo.png
 social:
-  name: Songzi Vong
+  name: Pinzhi Wang
   links:
-    - https://twitter.com/vszhub
-    - https://github.com/vszhub
+    - https://github.com/wangpinzhi
 google_site_verification: xxxxx
 lang: en
 
