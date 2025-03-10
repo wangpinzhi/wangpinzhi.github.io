@@ -25,8 +25,8 @@
         <mxCell id="RqmZcl1piN0nhpgaLidD-6" value="Fisheye Images" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;fontSize=18;" vertex="1" parent="RqmZcl1piN0nhpgaLidD-7">
           <mxGeometry x="7.5" y="150" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="RqmZcl1piN0nhpgaLidD-10" value="" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;fontSize=18;fontColor=default;autosize=1;resizable=0;fillColor=none;gradientColor=none;rotation=90;" vertex="1" parent="1">
-          <mxGeometry x="250" y="50" width="50" height="40" as="geometry" />
+        <mxCell id="RqmZcl1piN0nhpgaLidD-11" value="" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;align=center;verticalAlign=middle;fontFamily=Times New Roman;fontSize=18;fontColor=default;autosize=1;resizable=0;fillColor=none;gradientColor=none;rotation=91;" vertex="1" parent="1">
+          <mxGeometry x="325" y="180" width="50" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
