@@ -58,29 +58,20 @@
         <mxCell id="UW59TpsnFUn9pXLaUZdh-26" value="&lt;i style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 25px;&quot;&gt;V&lt;sub&gt;ctx, 0&lt;/sub&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="50" y="170" width="80" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="UW59TpsnFUn9pXLaUZdh-27" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="UW59TpsnFUn9pXLaUZdh-27" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
           <mxGeometry x="480" y="180" width="140" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="UW59TpsnFUn9pXLaUZdh-28" value="Tanh" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="510" y="180" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UW59TpsnFUn9pXLaUZdh-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=35;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="UW59TpsnFUn9pXLaUZdh-5" target="UW59TpsnFUn9pXLaUZdh-27">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UW59TpsnFUn9pXLaUZdh-30" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="UW59TpsnFUn9pXLaUZdh-30" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
           <mxGeometry x="480" y="330" width="140" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="UW59TpsnFUn9pXLaUZdh-31" value="Tanh" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="510" y="330" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UW59TpsnFUn9pXLaUZdh-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=15;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="UW59TpsnFUn9pXLaUZdh-15" target="UW59TpsnFUn9pXLaUZdh-30">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UW59TpsnFUn9pXLaUZdh-33" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="UW59TpsnFUn9pXLaUZdh-33" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
           <mxGeometry x="480" y="480" width="140" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="UW59TpsnFUn9pXLaUZdh-34" value="Tanh" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;fontFamily=Times New Roman;fontSize=25;arcSize=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="510" y="480" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UW59TpsnFUn9pXLaUZdh-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=5;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="UW59TpsnFUn9pXLaUZdh-20" target="UW59TpsnFUn9pXLaUZdh-33">
           <mxGeometry relative="1" as="geometry" />
