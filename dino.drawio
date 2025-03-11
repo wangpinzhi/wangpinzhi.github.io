@@ -116,6 +116,12 @@
         <mxCell id="0mWN_So7nt7Vez3Yg3of-42" value="Spherical&lt;br&gt;Sweep" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontFamily=Times New Roman;fontSize=25;" vertex="1" parent="1">
           <mxGeometry x="430" y="150" width="180" height="90" as="geometry" />
         </mxCell>
+        <mxCell id="0mWN_So7nt7Vez3Yg3of-45" value="FPN Adpater" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="460" y="595" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0mWN_So7nt7Vez3Yg3of-46" value="í ½í´¥" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=35;" vertex="1" parent="1">
+          <mxGeometry x="420" y="575" width="60" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
