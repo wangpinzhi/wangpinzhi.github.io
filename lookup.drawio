@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0" version="26.1.1">
   <diagram name="第 1 页" id="7dozvBvQt8dywPDQcPjt">
-    <mxGraphModel dx="1678" dy="928" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="2377" dy="1315" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -334,6 +334,12 @@
         </mxCell>
         <mxCell id="7EEdeznbNVHkcVCXxvmR-110" value="当前逆深度索引估计值 &lt;i&gt;n&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;fontSize=25;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="535" y="520" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-0DsJSZK-dr6U3UMHRUz-4" value="采样点" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=25;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="890" y="480" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-0DsJSZK-dr6U3UMHRUz-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.512;entryY=0.079;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;dashed=1;" edge="1" parent="1" source="7EEdeznbNVHkcVCXxvmR-101" target="-0DsJSZK-dr6U3UMHRUz-4">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
