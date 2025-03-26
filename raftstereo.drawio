@@ -19,6 +19,9 @@
         <mxCell id="M8WggwaZ2sR5re-Eu2jD-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=20;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="1130" y="320" width="170" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="M8WggwaZ2sR5re-Eu2jD-6" value="视差图" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=20;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="280" width="130" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
