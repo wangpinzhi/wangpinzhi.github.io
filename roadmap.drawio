@@ -101,13 +101,13 @@
           <mxGeometry x="800" y="325" width="280" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-32" value="光轴偏移数据增强" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=20;fontFamily=Times New Roman;" vertex="1" parent="RTbWOXcF7epCuZFrVSqs-41">
-          <mxGeometry x="800" y="420" width="280" height="40" as="geometry" />
+          <mxGeometry x="800" y="460" width="280" height="40" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-33" value="共视区域增强模块" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=20;fontFamily=Times New Roman;" vertex="1" parent="RTbWOXcF7epCuZFrVSqs-41">
-          <mxGeometry x="800" y="520" width="280" height="40" as="geometry" />
+          <mxGeometry x="800" y="500" width="280" height="40" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-35" value="基于Carla的实车布局多目异构仿真数据采集方法" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=20;fontFamily=Times New Roman;" vertex="1" parent="RTbWOXcF7epCuZFrVSqs-41">
-          <mxGeometry x="800" y="460" width="280" height="60" as="geometry" />
+          <mxGeometry x="800" y="400" width="280" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-39" value="“由粗到细”多阶段全景立体匹配算法" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=20;fontFamily=Times New Roman;" vertex="1" parent="RTbWOXcF7epCuZFrVSqs-41">
           <mxGeometry x="800" y="85" width="280" height="70" as="geometry" />
