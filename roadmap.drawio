@@ -17,7 +17,7 @@
           <mxGeometry x="320" y="280" width="320" height="80" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-4" value="本文的研究难点" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=25;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="390" y="80" width="200" height="40" as="geometry" />
+          <mxGeometry x="380" y="80" width="200" height="40" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="RTbWOXcF7epCuZFrVSqs-5" target="RTbWOXcF7epCuZFrVSqs-10">
           <mxGeometry relative="1" as="geometry" />
@@ -44,7 +44,7 @@
           <mxGeometry x="760" y="160" width="250" height="80" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-8" value="针对问题的研究内容" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=25;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="770" y="80" width="250" height="40" as="geometry" />
+          <mxGeometry x="760" y="80" width="250" height="40" as="geometry" />
         </mxCell>
         <mxCell id="RTbWOXcF7epCuZFrVSqs-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="RTbWOXcF7epCuZFrVSqs-10" target="RTbWOXcF7epCuZFrVSqs-24">
           <mxGeometry relative="1" as="geometry" />
